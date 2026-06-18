@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Smart Finds & Deals</title>
+    <!-- 해외 유저들에게 가장 신뢰도 높은 Google Inter 폰트 적용 -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            /* 고급스러운 딥 다크 미드나잇 블루 그라데이션 배경 + 미세한 패턴 */
+            background: radial-gradient(circle at 50% 0%, #1a2235 0%, #060814 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 50px 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 480px;
+            text-align: center;
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* 프로필 영역 */
+        .profile-section {
+            margin-bottom: 32px;
+        }
+
+        .profile-avatar {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #4d8ef0, #7b5ef7);
+            margin: 0 auto 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            box-shadow: 0 0 30px rgba(77, 142, 240, 0.4);
+        }
+
+        .profile-name {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 6px;
+            letter-spacing: -0.3px;
+        }
+
+        .profile-bio {
+            font-size: 14px;
+            color: #8899aa;
+            line-height: 1.5;
+        }
+
+        /* 링크 카드 */
+        .links-section {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .section-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: #556677;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 4px;
+            text-align: left;
+        }
+
+        .link-card {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            padding: 16px 20px;
+            text-decoration: none;
+            color: #ffffff;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .link-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(77, 142, 240, 0.05), rgba(123, 94, 247, 0.05));
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        .link-card:hover {
+            border-color: rgba(77, 142, 240, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .link-card:hover::before {
+            opacity: 1;
+        }
+
+        .badge {
+            font-size: 10px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 20px;
+            margin-right: 12px;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .badge-new {
+            background: rgba(16, 185, 129, 0.15);
+            color: #34d399;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .badge-hot {
+            background: rgba(239, 68, 68, 0.15);
+            color: #f87171;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+
+        .badge-best {
+            background: rgba(234, 179, 8, 0.15);
+            color: #fbbf24;
+            border: 1px solid rgba(234, 179, 8, 0.3);
+        }
+
+        .badge-limit {
+            background: rgba(168, 85, 247, 0.15);
+            color: #c084fc;
+            border: 1px solid rgba(168, 85, 247, 0.3);
+        }
+
+        .link-title {
+            flex: 1;
+            font-size: 14px;
+            font-weight: 500;
+            text-align: left;
+        }
+
+        .arrow-icon {
+            color: #445566;
+            font-size: 16px;
+            flex-shrink: 0;
+            transition: color 0.2s ease, transform 0.2s ease;
+        }
+
+        .link-card:hover .arrow-icon {
+            color: #4d8ef0;
+            transform: translateX(3px);
+        }
+
+        /* 하단 푸터 */
+        .footer {
+            margin-top: 40px;
+            font-size: 11px;
+            color: #334455;
+            line-height: 1.8;
+        }
+
+        /* 토스트 알림 */
+        #toast {
+            visibility: hidden;
+            background: #1a2e4a;
+            color: #a8d8ff;
+            text-align: center;
+            border-radius: 10px;
+            padding: 14px 22px;
+            position: fixed;
+            z-index: 1;
+            left: 50%;
+            bottom: 30px;
+            font-size: 14px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+            border: 1px solid #4dadff;
+        }
+
+        #toast.show {
+            visibility: visible;
+            -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            transform: translateX(-50%);
+        }
+
+        @-webkit-keyframes fadein {
+            from {
+                bottom: 0;
+                opacity: 0;
+            }
+
+            to {
+                bottom: 30px;
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadein {
+            from {
+                bottom: 0;
+                opacity: 0;
+            }
+
+            to {
+                bottom: 30px;
+                opacity: 1;
+            }
+        }
+
+        @-webkit-keyframes fadeout {
+            from {
+                bottom: 30px;
+                opacity: 1;
+            }
+
+            to {
+                bottom: 0;
+                opacity: 0;
+            }
+        }
+
+        @keyframes fadeout {
+            from {
+                bottom: 30px;
+                opacity: 1;
+            }
+
+            to {
+                bottom: 0;
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- 프로필 섹션 -->
+        <div class="profile-section">
+            <div class="profile-avatar">🛒</div>
+            <div class="profile-name">Smart Finds & Deals</div>
+            <div class="profile-bio">Best picks from AliExpress — curated deals,<br>trending gadgets & limited-time offers.</div>
+        </div>
+
+        <!-- 링크 카드 섹션 -->
+        <div class="links-section">
+            <div class="section-label">🔗 Today's Top Picks</div>
+
+            <a href="javascript:void(0)" class="link-card" onclick="showToast()">
+                <span class="badge badge-new">✨ NEW</span>
+                <span class="link-title">Portable Wireless Neck Fan Pro</span>
+                <span class="arrow-icon">→</span>
+            </a>
+
+            <a href="javascript:void(0)" class="link-card" onclick="showToast()">
+                <span class="badge badge-hot">🔥 HOT</span>
+                <span class="link-title">RGB Mechanical Keyboard (TKL)</span>
+                <span class="arrow-icon">→</span>
+            </a>
+
+            <a href="javascript:void(0)" class="link-card" onclick="showToast()">
+                <span class="badge badge-best">⭐ BEST</span>
+                <span class="link-title">Next-Gen Mini 4K Laser Projector</span>
+                <span class="arrow-icon">→</span>
+            </a>
+
+            <a href="javascript:void(0)" class="link-card" onclick="showToast()">
+                <span class="badge badge-limit">⏰ LIMIT</span>
+                <span class="link-title">Magnetic 3-in-1 Foldable Travel Charger</span>
+                <span class="arrow-icon">→</span>
+            </a>
+
+            <a href="javascript:void(0)" class="link-card" onclick="showToast()">
+                <span class="badge badge-hot">🔥 HOT</span>
+                <span class="link-title">Smart Auto-Tracking Phone Gimbal</span>
+                <span class="arrow-icon">→</span>
+            </a>
+            <!-- ITEM_END -->
+
+        </div>
+
+        <!-- 하단 저작권 표시 (신뢰도 확보용) -->
+        <div class="footer">
+            &copy; 2026 Smart Finds Deals. All rights reserved.<br>
+            As an Affiliate, we earn from qualifying purchases.
+        </div>
+    </div>
+
+    <!-- 링크 클릭 시 나타나는 가짜 알림창 (미리보기 확인용) -->
+    <div id="toast">✅ 제휴 링크 이동 시뮬레이션: <br>알리익스프레스 상품 페이지로 이동합니다.</div>
+
+    <script>
+        // 버튼 클릭 시 작동하는 간단한 스크립트
+        function showToast() {
+            var x = document.getElementById("toast");
+            x.className = "show";
+            setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
+        }
+    </script>
+</body>
+
+</html>
