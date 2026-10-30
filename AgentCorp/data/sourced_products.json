@@ -1,0 +1,46 @@
+[
+  {
+    "id": "ali_1001",
+    "title": "Mini Portable Electric Air Duster & Vacuum 2-in-1 for Keyboard & Car",
+    "original_url": "https://aliexpress.com/item/100500123456.html",
+    "affiliate_url": "https://aliexpress.com/item/100500123456.html?aff_fcid=agentcorp_global_01",
+    "price_usd": 16.8,
+    "rating": 4.8,
+    "orders_count": 3420,
+    "raw_video_path": "data/air_duster_motion.mp4",
+    "image_path": "data/real_air_duster.jpg",
+    "images": [
+      "data/real_air_duster.jpg"
+    ],
+    "category": "tech_gadgets",
+    "viral_score": 100.0,
+    "viral_reasons": [
+      "충동구매 최적 가격대 ($16.80)",
+      "최상위 고객 만족도 (★4.8)",
+      "검증된 메가 히트 상품 (3,420건 판매)",
+      "고화질 시연 데모 비디오 확보"
+    ]
+  },
+  {
+    "id": "ali_1002",
+    "title": "Automatic Stirring Magnetic Mug for Coffee & Milk",
+    "original_url": "https://aliexpress.com/item/100500987654.html",
+    "affiliate_url": "https://aliexpress.com/item/100500987654.html?aff_fcid=agentcorp_global_01",
+    "price_usd": 9.99,
+    "rating": 4.6,
+    "orders_count": 1850,
+    "raw_video_path": "data/stirring_mug_motion.mp4",
+    "image_path": "data/real_stirring_mug.jpg",
+    "images": [
+      "data/real_stirring_mug.jpg"
+    ],
+    "category": "kitchen_gadgets",
+    "viral_score": 95.0,
+    "viral_reasons": [
+      "충동구매 최적 가격대 ($9.99)",
+      "안정적인 평점 (★4.6)",
+      "검증된 메가 히트 상품 (1,850건 판매)",
+      "고화질 시연 데모 비디오 확보"
+    ]
+  }
+]
