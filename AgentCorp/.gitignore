@@ -8,9 +8,13 @@ env/
 venv/
 ENV/
 
-# Secrets
+# Secrets & Netlify state
 .env
+.netlify/
+.netlify
+
 
 # Large temporary files
 *.tmp
 *.log
+

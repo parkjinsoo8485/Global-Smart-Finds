@@ -1,0 +1,45 @@
+{
+  "product_id": "ali_2001",
+  "title": "Smart Visual Ear Cleaner with 1080P HD Wireless Endoscope Camera",
+  "category": "smart_gadgets",
+  "price_usd": 12.49,
+  "rating": 4.8,
+  "orders_count": 8540,
+  "affiliate_url": "https://aliexpress.com/item/10050078901234.html?aff_fcid=bio-search",
+  "viral_score": 100.0,
+  "raw_video_source": "data\\raw_videos\\ali_2001_live.mp4",
+  "voice_actor": "Gemini Native TTS (Puck) + 3-Stage SFX",
+  "ai_insight": {
+    "viral_factor": "The 1080P wireless endoscope camera streams live gross-out macro footage of earwax removal straight to the viewer's phone, triggering intense satisfying curiosity that hooks viewers instantly.",
+    "anti_ban_risk": "MEDIUM",
+    "compliance_notes": "Avoid making explicit medical or diagnostic claims (e.g., curing infections or medical-grade cleaning). Include standard disclaimers that this is for personal hygiene use only to prevent ad platform rejections.",
+    "recommended_hook_angle": "Start with an extreme close-up of a massive earwax plug under the 1080P scope with the text 'I can't believe lived with this inside my ear' to instantly captivate curiosity in the first 3 seconds.",
+    "target_audience": "Gen Z and Millennials interested in satisfying ASMR content, gadgets, and personal hygiene products looking for a dopamine-boosting cleaning experience.",
+    "analysis_mode": "ai_agent"
+  },
+  "script": {
+    "product_id": "ali_2001",
+    "item_code": "#2001",
+    "hook_angle": "problem_solver",
+    "variant_id": "A",
+    "product_title": "Smart Visual Ear Cleaner with 1080P HD Wireless Endoscope Camera",
+    "hook": "Stop digging blind in your ears with cotton swabs right now!",
+    "body": "This tiny wireless endoscope streams 1080P HD video straight to your phone so you can safely clear wax in seconds. Over eight thousand people give it four point eight stars because it is ridiculously satisfying and actually works.",
+    "cta": "Link #2001 is in my bio! Search #2001 to grab yours before it sells out!",
+    "full_narration": "Stop digging blind in your ears with cotton swabs right now! This tiny wireless endoscope streams 1080P HD video straight to your phone so you can safely clear wax in seconds. Over eight thousand people give it four point eight stars because it is ridiculously satisfying and actually works. Link #2001 is in my bio! Search #2001 to grab yours before it sells out!",
+    "caption": "You’ve been cleaning your ears all wrong until now. 🤯 The Smart Visual Ear Cleaner with 1080P HD Wireless Endoscope Camera lets you see everything live on your screen for just $12.49! 🔎 Link #2001 is in my bio! Search #2001 to grab yours before it sells out! #SmartGadgets #EarCleaner #TechGadgets #MustHaves #TikTokMadeMeBuyIt #ad #commissionsearned",
+    "hashtags": [
+      "#SmartGadgets",
+      "#EarCleaner",
+      "#TechGadgets",
+      "#MustHaves",
+      "#TikTokMadeMeBuyIt",
+      "#ad",
+      "#commissionsearned"
+    ],
+    "generation_mode": "ai_agent"
+  },
+  "audio_file": "output\\audio\\ali_2001_narration.mp3",
+  "video_file": "output\\videos\\ali_2001_short.mp4",
+  "verification_frame": "output\\verification_frames\\ali_2001_short_verified_frame.jpg"
+}

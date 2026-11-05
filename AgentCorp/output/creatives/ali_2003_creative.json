@@ -1,0 +1,47 @@
+{
+  "product_id": "ali_2003",
+  "title": "Levitating Magnetic Astronaut Galaxy Aurora Projector with 360 Rotation",
+  "category": "home_decor",
+  "price_usd": 24.99,
+  "rating": 4.9,
+  "orders_count": 15420,
+  "affiliate_url": "https://aliexpress.com/item/10050078909999.html?aff_fcid=bio-search",
+  "viral_score": 100.0,
+  "raw_video_source": "data\\raw_videos\\ali_2003_live.mp4",
+  "voice_actor": "Gemini Native TTS (Aoede) + 3-Stage SFX",
+  "ai_insight": {
+    "viral_factor": "The mesmerizing combination of a floating magnetic astronaut head projecting a spinning galaxy aurora across dark bedroom walls creates an immediate sensory spectacle. In 숏폼 videos, the visual contrast in a pitch-black room instantly stops scrolling.",
+    "anti_ban_risk": "LOW",
+    "compliance_notes": "Ensure standard CE/FCC safety certifications are verified for the USB power supply and magnetic base to prevent overheating risks. Avoid making any false astronomical or medical claims regarding sleep healing.",
+    "recommended_hook_angle": "Start the video in pitch darkness with the caption 'POV: You turned your bedroom into a private galaxy,' then instantly snap the magnetic astronaut head onto the base to reveal the swirling aurora ceiling.",
+    "target_audience": "Gen Z and young adults aged 15-28 looking for aesthetic room decor, aesthetic lighting, and ambient bedroom upgrades for TikTok and Twitch setups.",
+    "analysis_mode": "ai_agent"
+  },
+  "script": {
+    "product_id": "ali_2003",
+    "item_code": "#2003",
+    "hook_angle": "problem_solver",
+    "variant_id": "A",
+    "product_title": "Levitating Magnetic Astronaut Galaxy Aurora Projector with 360 Rotation",
+    "hook": "Tired of boring, dead ceilings that make your room feel totally lifeless?",
+    "body": "This floating astronaut instantly floods your entire space with 360 degrees of stunning nebula galaxies and aurora lights. With a stellar 4.9-star rating and over fifteen thousand sold, it turns any ordinary bedroom into a cosmic masterpiece for just twenty-four ninety-nine.",
+    "cta": "Link #2003 is in my bio! Search #2003 to grab yours before it sells out!",
+    "full_narration": "Tired of boring, dead ceilings that make your room feel totally lifeless? This floating astronaut instantly floods your space with 360 degrees of stunning aurora galaxies, transforming any room for just twenty-four ninety-nine. Link #2003 is in my bio! Search #2003 to grab yours before it sells out!",
+    "caption": "Transform your room instantly with the Levitating Magnetic Astronaut Galaxy Aurora Projector! 🌌✨ Only $24.99 and rated 4.9 stars. 🔎 Link #2003 is in my bio! Search #2003 to grab yours before it sells out!\n\n#AstronautProjector #RoomDecor #Gadgets #TikTokMadeMeBuyIt #HomeDecor #ad #commissionsearned",
+    "hashtags": [
+      "AstronautProjector",
+      "RoomDecor",
+      "Gadgets",
+      "TikTokMadeMeBuyIt",
+      "HomeDecor",
+      "ad",
+      "commissionsearned",
+      "#ad",
+      "#commissionsearned"
+    ],
+    "generation_mode": "ai_agent"
+  },
+  "audio_file": "output\\audio\\ali_2003_narration.mp3",
+  "video_file": "output\\videos\\ali_2003_short.mp4",
+  "verification_frame": "output\\verification_frames\\ali_2003_short_verified_frame.jpg"
+}

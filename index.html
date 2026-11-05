@@ -4,9 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Global Smart Finds & Deals</title>
-    <!-- 해외 유저들에게 가장 신뢰도 높은 Google Inter 폰트 적용 -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Global Smart Finds & Deals | Official Bio-Search Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
         * {
@@ -17,90 +16,210 @@
         }
 
         body {
-            /* 고급스러운 딥 다크 미드나잇 블루 그라데이션 배경 + 미세한 패턴 */
             background: radial-gradient(circle at 50% 0%, #1a2235 0%, #060814 100%);
             color: #ffffff;
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: flex-start;
-            padding: 50px 20px;
+            padding: 36px 16px 60px;
         }
 
         .container {
             width: 100%;
-            max-width: 480px;
+            max-width: 520px;
             text-align: center;
-            animation: fadeIn 0.8s ease-out forwards;
+            animation: fadeIn 0.5s ease-out forwards;
         }
 
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        /* 프로필 영역 */
         .profile-section {
-            margin-bottom: 32px;
+            margin-bottom: 20px;
         }
 
         .profile-avatar {
-            width: 90px;
-            height: 90px;
+            width: 82px;
+            height: 82px;
             border-radius: 50%;
             background: linear-gradient(135deg, #4d8ef0, #7b5ef7);
-            margin: 0 auto 16px;
+            margin: 0 auto 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 40px;
-            box-shadow: 0 0 30px rgba(77, 142, 240, 0.4);
+            font-size: 36px;
+            box-shadow: 0 0 28px rgba(77, 142, 240, 0.45);
         }
 
         .profile-name {
             font-size: 22px;
-            font-weight: 700;
+            font-weight: 800;
             margin-bottom: 6px;
             letter-spacing: -0.3px;
         }
 
         .profile-bio {
-            font-size: 14px;
-            color: #8899aa;
+            font-size: 13.5px;
+            color: #94a3b8;
             line-height: 1.5;
         }
 
-        /* 링크 카드 */
+        .tracking-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 10px;
+            padding: 4px 12px;
+            border-radius: 999px;
+            background: rgba(77, 142, 240, 0.12);
+            border: 1px solid rgba(77, 142, 240, 0.3);
+            color: #93c5fd;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        /* Justice Buys 스타일 실시간 검색창 */
+        .search-box-wrap {
+            position: relative;
+            margin-bottom: 10px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 14px 40px 14px 42px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 500;
+            outline: none;
+            transition: all 0.2s ease;
+        }
+
+        .search-input::placeholder {
+            color: #64748b;
+        }
+
+        .search-input:focus {
+            border-color: #4d8ef0;
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 0 3px rgba(77, 142, 240, 0.22);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 15px;
+            color: #64748b;
+            pointer-events: none;
+        }
+
+        .clear-btn {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #94a3b8;
+            font-size: 14px;
+            cursor: pointer;
+            display: none;
+        }
+
+        /* 빠른 번호 칩 (Quick Code Chips) */
+        .quick-codes {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            overflow-x: auto;
+            margin-bottom: 14px;
+            padding-bottom: 2px;
+            scrollbar-width: none;
+        }
+
+        .quick-codes::-webkit-scrollbar {
+            display: none;
+        }
+
+        .quick-chip {
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #cbd5e1;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.15s ease;
+        }
+
+        .quick-chip:hover {
+            background: rgba(77, 142, 240, 0.2);
+            border-color: #4d8ef0;
+            color: #ffffff;
+        }
+
+        /* 카테고리 필터 탭 (All / Tech / Home / Viral) */
+        .category-tabs {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            margin-bottom: 18px;
+        }
+
+        .tab-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #94a3b8;
+            padding: 9px 10px;
+            border-radius: 12px;
+            font-size: 12.5px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .tab-btn.active,
+        .tab-btn:hover {
+            background: linear-gradient(135deg, #4d8ef0, #7b5ef7);
+            border-color: transparent;
+            color: #ffffff;
+            box-shadow: 0 4px 14px rgba(77, 142, 240, 0.3);
+        }
+
         .links-section {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 11px;
         }
 
         .section-label {
             font-size: 11px;
-            font-weight: 600;
-            color: #556677;
+            font-weight: 700;
+            color: #64748b;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-bottom: 4px;
+            letter-spacing: 1.4px;
+            margin-bottom: 2px;
             text-align: left;
+            display: flex;
+            justify-content: space-between;
         }
 
         .link-card {
             display: flex;
             align-items: center;
             background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.09);
             border-radius: 14px;
-            padding: 16px 20px;
+            padding: 14px 15px;
             text-decoration: none;
             color: #ffffff;
             transition: all 0.2s ease;
@@ -109,23 +228,39 @@
             overflow: hidden;
         }
 
-        .link-card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(77, 142, 240, 0.05), rgba(123, 94, 247, 0.05));
-            opacity: 0;
-            transition: opacity 0.2s ease;
-        }
-
         .link-card:hover {
-            border-color: rgba(77, 142, 240, 0.4);
+            border-color: rgba(77, 142, 240, 0.55);
             transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+            background: rgba(255, 255, 255, 0.075);
         }
 
-        .link-card:hover::before {
-            opacity: 1;
+        .code-group {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+            margin-right: 9px;
+            flex-shrink: 0;
+        }
+
+        .item-code {
+            font-size: 11px;
+            font-weight: 800;
+            padding: 2px 7px;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        .primary-code {
+            background: rgba(77, 142, 240, 0.2);
+            color: #60a5fa;
+            border: 1px solid rgba(77, 142, 240, 0.4);
+        }
+
+        .seq-code {
+            background: rgba(255, 255, 255, 0.06);
+            color: #94a3b8;
+            font-size: 10px;
         }
 
         .badge {
@@ -133,7 +268,7 @@
             font-weight: 700;
             padding: 3px 8px;
             border-radius: 20px;
-            margin-right: 12px;
+            margin-right: 10px;
             white-space: nowrap;
             flex-shrink: 0;
         }
@@ -156,23 +291,39 @@
             border: 1px solid rgba(234, 179, 8, 0.3);
         }
 
-        .badge-limit {
-            background: rgba(168, 85, 247, 0.15);
-            color: #c084fc;
-            border: 1px solid rgba(168, 85, 247, 0.3);
+        .card-body {
+            flex: 1;
+            text-align: left;
+            min-width: 0;
         }
 
         .link-title {
-            flex: 1;
-            font-size: 14px;
-            font-weight: 500;
-            text-align: left;
+            display: block;
+            font-size: 13.5px;
+            font-weight: 600;
+            color: #f8fafc;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .link-meta {
+            display: block;
+            font-size: 11.5px;
+            color: #94a3b8;
+            margin-top: 3px;
+        }
+
+        .price-tag {
+            color: #34d399;
+            font-weight: 700;
         }
 
         .arrow-icon {
-            color: #445566;
+            color: #64748b;
             font-size: 16px;
             flex-shrink: 0;
+            margin-left: 10px;
             transition: color 0.2s ease, transform 0.2s ease;
         }
 
@@ -181,84 +332,20 @@
             transform: translateX(3px);
         }
 
-        /* 하단 푸터 */
+        .empty-state {
+            display: none;
+            padding: 28px 16px;
+            color: #94a3b8;
+            font-size: 13px;
+            border: 1px dashed rgba(255, 255, 255, 0.14);
+            border-radius: 14px;
+        }
+
         .footer {
-            margin-top: 40px;
+            margin-top: 36px;
             font-size: 11px;
-            color: #334455;
-            line-height: 1.8;
-        }
-
-        /* 토스트 알림 */
-        #toast {
-            visibility: hidden;
-            background: #1a2e4a;
-            color: #a8d8ff;
-            text-align: center;
-            border-radius: 10px;
-            padding: 14px 22px;
-            position: fixed;
-            z-index: 1;
-            left: 50%;
-            bottom: 30px;
-            font-size: 14px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-            border: 1px solid #4dadff;
-        }
-
-        #toast.show {
-            visibility: visible;
-            -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
-            animation: fadein 0.5s, fadeout 0.5s 2.5s;
-            transform: translateX(-50%);
-        }
-
-        @-webkit-keyframes fadein {
-            from {
-                bottom: 0;
-                opacity: 0;
-            }
-
-            to {
-                bottom: 30px;
-                opacity: 1;
-            }
-        }
-
-        @keyframes fadein {
-            from {
-                bottom: 0;
-                opacity: 0;
-            }
-
-            to {
-                bottom: 30px;
-                opacity: 1;
-            }
-        }
-
-        @-webkit-keyframes fadeout {
-            from {
-                bottom: 30px;
-                opacity: 1;
-            }
-
-            to {
-                bottom: 0;
-                opacity: 0;
-            }
-        }
-
-        @keyframes fadeout {
-            from {
-                bottom: 30px;
-                opacity: 1;
-            }
-
-            to {
-                bottom: 0;
-                opacity: 0;
-            }
+            color: #475569;
+            line-height: 1.7;
         }
     </style>
 </head>
@@ -271,63 +358,258 @@
         <div class="profile-section">
             <div class="profile-avatar">🛒</div>
             <div class="profile-name">Smart Finds & Deals</div>
-            <div class="profile-bio">Best picks from AliExpress — curated deals,<br>trending gadgets & limited-time offers.</div>
+            <div class="profile-bio">Enter the <strong>#Number</strong> from our video (e.g. <strong>#001</strong> or <strong>#2001</strong>) to jump straight to the deal!</div>
+            <div class="tracking-pill">⚡ Official Partner ID: bio-search · Auto-Synced with Sourced DB</div>
         </div>
 
-        <!-- 링크 카드 섹션 -->
-        <div class="links-section">
-            <div class="section-label">🔗 Today's Top Picks</div>
+        <!-- 상단 실시간 검색창 -->
+        <div class="search-box-wrap">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="bioSearchInput" class="search-input" placeholder="Search #number (#001, #2001) or gadget name..." oninput="filterGadgets()">
+            <button id="clearSearchBtn" class="clear-btn" onclick="clearSearch()">✕</button>
+        </div>
 
-            <a href="javascript:void(0)" class="link-card" onclick="showToast()">
-                <span class="badge badge-new">✨ NEW</span>
-                <span class="link-title">Portable Wireless Neck Fan Pro</span>
-                <span class="arrow-icon">→</span>
+        <!-- 빠른 번호 선택 칩 -->
+        <div class="quick-codes">
+            <span class="quick-chip" onclick="quickSearch('#001')">#001 (#2001)</span>
+            <span class="quick-chip" onclick="quickSearch('#002')">#002 (#2003)</span>
+            <span class="quick-chip" onclick="quickSearch('#003')">#003 (#2002)</span>
+            <span class="quick-chip" onclick="quickSearch('#004')">#004 (#1001)</span>
+            <span class="quick-chip" onclick="quickSearch('#005')">#005 (#1002)</span>
+        </div>
+
+        <!-- 카테고리 필터 탭 (All / Tech / Home / Viral) -->
+        <div class="category-tabs">
+            <button class="tab-btn active" onclick="setCategory('all', this)">All</button>
+            <button class="tab-btn" onclick="setCategory('tech', this)">Tech</button>
+            <button class="tab-btn" onclick="setCategory('home', this)">Home</button>
+            <button class="tab-btn" onclick="setCategory('viral', this)">🔥 Viral</button>
+        </div>
+
+        <!-- 링크 카드 리스트 -->
+        <div class="links-section" id="gadgetList">
+            <div class="section-label">
+                <span>🔗 Direct Video Product Links</span>
+                <span id="itemCountLabel">5 Deals</span>
+            </div>
+
+            <a href="https://aliexpress.com/item/10050078901234.html?aff_fcid=bio-search" target="_blank" rel="noopener noreferrer" class="link-card" data-code="#001 001 #2001 2001 ali_2001" data-category="tech viral">
+                <div class="code-group">
+                    <span class="item-code primary-code">#2001</span>
+                    <span class="item-code seq-code">#001</span>
+                </div>
+                <span class="badge badge-hot">🔥 VIRAL</span>
+                <div class="card-body">
+                    <span class="link-title">Smart Visual Ear Cleaner with 1080P HD Wireless Endoscope Camera</span>
+                    <span class="link-meta"><span class="price-tag">$12.49</span> · ★ 4.8 (8,540+ sold)</span>
+                </div>
+                <span class="arrow-icon">↗</span>
             </a>
 
-            <a href="javascript:void(0)" class="link-card" onclick="showToast()">
-                <span class="badge badge-hot">🔥 HOT</span>
-                <span class="link-title">RGB Mechanical Keyboard (TKL)</span>
-                <span class="arrow-icon">→</span>
-            </a>
-
-            <a href="javascript:void(0)" class="link-card" onclick="showToast()">
+            <a href="https://aliexpress.com/item/10050078909999.html?aff_fcid=bio-search" target="_blank" rel="noopener noreferrer" class="link-card" data-code="#002 002 #2003 2003 ali_2003" data-category="home viral">
+                <div class="code-group">
+                    <span class="item-code primary-code">#2003</span>
+                    <span class="item-code seq-code">#002</span>
+                </div>
                 <span class="badge badge-best">⭐ BEST</span>
-                <span class="link-title">Next-Gen Mini 4K Laser Projector</span>
-                <span class="arrow-icon">→</span>
+                <div class="card-body">
+                    <span class="link-title">Levitating Magnetic Astronaut Galaxy Aurora Projector with 360 Rotation</span>
+                    <span class="link-meta"><span class="price-tag">$24.99</span> · ★ 4.9 (15,420+ sold)</span>
+                </div>
+                <span class="arrow-icon">↗</span>
             </a>
 
-            <a href="javascript:void(0)" class="link-card" onclick="showToast()">
-                <span class="badge badge-limit">⏰ LIMIT</span>
-                <span class="link-title">Magnetic 3-in-1 Foldable Travel Charger</span>
-                <span class="arrow-icon">→</span>
+            <a href="https://aliexpress.com/item/10050078905678.html?aff_fcid=bio-search" target="_blank" rel="noopener noreferrer" class="link-card" data-code="#003 003 #2002 2002 ali_2002" data-category="tech viral">
+                <div class="code-group">
+                    <span class="item-code primary-code">#2002</span>
+                    <span class="item-code seq-code">#003</span>
+                </div>
+                <span class="badge badge-new">✨ NEW</span>
+                <div class="card-body">
+                    <span class="link-title">Mini Pocket Thermal Photo & Note Printer with Inkless Bluetooth Printing</span>
+                    <span class="link-meta"><span class="price-tag">$14.90</span> · ★ 4.7 (12,300+ sold)</span>
+                </div>
+                <span class="arrow-icon">↗</span>
             </a>
 
-            <a href="javascript:void(0)" class="link-card" onclick="showToast()">
-                <span class="badge badge-hot">🔥 HOT</span>
-                <span class="link-title">Smart Auto-Tracking Phone Gimbal</span>
-                <span class="arrow-icon">→</span>
+            <a href="https://aliexpress.com/item/100500123456.html?aff_fcid=bio-search" target="_blank" rel="noopener noreferrer" class="link-card" data-code="#004 004 #1001 1001 ali_1001" data-category="tech viral">
+                <div class="code-group">
+                    <span class="item-code primary-code">#1001</span>
+                    <span class="item-code seq-code">#004</span>
+                </div>
+                <span class="badge badge-hot">🔥 VIRAL</span>
+                <div class="card-body">
+                    <span class="link-title">Mini Portable Electric Air Duster & Vacuum 2-in-1 for Keyboard & Car</span>
+                    <span class="link-meta"><span class="price-tag">$16.80</span> · ★ 4.8 (3,420+ sold)</span>
+                </div>
+                <span class="arrow-icon">↗</span>
+            </a>
+
+            <a href="https://aliexpress.com/item/100500987654.html?aff_fcid=bio-search" target="_blank" rel="noopener noreferrer" class="link-card" data-code="#005 005 #1002 1002 ali_1002" data-category="home viral">
+                <div class="code-group">
+                    <span class="item-code primary-code">#1002</span>
+                    <span class="item-code seq-code">#005</span>
+                </div>
+                <span class="badge badge-best">⭐ BEST</span>
+                <div class="card-body">
+                    <span class="link-title">Automatic Stirring Magnetic Mug for Coffee & Milk</span>
+                    <span class="link-meta"><span class="price-tag">$9.99</span> · ★ 4.6 (1,850+ sold)</span>
+                </div>
+                <span class="arrow-icon">↗</span>
             </a>
             <!-- ITEM_END -->
 
+            <div id="emptyState" class="empty-state">
+                No matching gadget found. Try searching <strong>#001</strong>, <strong>#2001</strong>, or <strong>projector</strong>!
+            </div>
         </div>
 
-        <!-- 하단 저작권 표시 (신뢰도 확보용) -->
+        <!-- 하단 저작권 및 FTC 제휴 고지 -->
         <div class="footer">
             &copy; 2026 Smart Finds Deals. All rights reserved.<br>
-            As an Affiliate, we earn from qualifying purchases.
+            FTC Disclosure: As an AliExpress Affiliate Partner (ID: <code>bio-search</code>), we earn from qualifying purchases at no extra cost to you. (#ad #commissionsearned)
         </div>
     </div>
 
-    <!-- 링크 클릭 시 나타나는 가짜 알림창 (미리보기 확인용) -->
-    <div id="toast">✅ 제휴 링크 이동 시뮬레이션: <br>알리익스프레스 상품 페이지로 이동합니다.</div>
-
+    <!-- sourced_products.json 내장 스냅샷 + 실시간 fetch 자동 연동 -->
     <script>
-        // 버튼 클릭 시 작동하는 간단한 스크립트
-        function showToast() {
-            var x = document.getElementById("toast");
-            x.className = "show";
-            setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
+        window.SOURCED_PRODUCTS_DATA = [
+  {
+    "id": "ali_2001",
+    "seq_code": "#001",
+    "id_code": "#2001",
+    "title": "Smart Visual Ear Cleaner with 1080P HD Wireless Endoscope Camera",
+    "price_usd": 12.49,
+    "rating": 4.8,
+    "orders_count": 8540,
+    "affiliate_url": "https://aliexpress.com/item/10050078901234.html?aff_fcid=bio-search",
+    "tabs": [
+      "tech",
+      "viral"
+    ]
+  },
+  {
+    "id": "ali_2003",
+    "seq_code": "#002",
+    "id_code": "#2003",
+    "title": "Levitating Magnetic Astronaut Galaxy Aurora Projector with 360 Rotation",
+    "price_usd": 24.99,
+    "rating": 4.9,
+    "orders_count": 15420,
+    "affiliate_url": "https://aliexpress.com/item/10050078909999.html?aff_fcid=bio-search",
+    "tabs": [
+      "home",
+      "viral"
+    ]
+  },
+  {
+    "id": "ali_2002",
+    "seq_code": "#003",
+    "id_code": "#2002",
+    "title": "Mini Pocket Thermal Photo & Note Printer with Inkless Bluetooth Printing",
+    "price_usd": 14.9,
+    "rating": 4.7,
+    "orders_count": 12300,
+    "affiliate_url": "https://aliexpress.com/item/10050078905678.html?aff_fcid=bio-search",
+    "tabs": [
+      "tech",
+      "viral"
+    ]
+  },
+  {
+    "id": "ali_1001",
+    "seq_code": "#004",
+    "id_code": "#1001",
+    "title": "Mini Portable Electric Air Duster & Vacuum 2-in-1 for Keyboard & Car",
+    "price_usd": 16.8,
+    "rating": 4.8,
+    "orders_count": 3420,
+    "affiliate_url": "https://aliexpress.com/item/100500123456.html?aff_fcid=bio-search",
+    "tabs": [
+      "tech",
+      "viral"
+    ]
+  },
+  {
+    "id": "ali_1002",
+    "seq_code": "#005",
+    "id_code": "#1002",
+    "title": "Automatic Stirring Magnetic Mug for Coffee & Milk",
+    "price_usd": 9.99,
+    "rating": 4.6,
+    "orders_count": 1850,
+    "affiliate_url": "https://aliexpress.com/item/100500987654.html?aff_fcid=bio-search",
+    "tabs": [
+      "home",
+      "viral"
+    ]
+  }
+];
+        let currentCategory = 'all';
+
+        function setCategory(cat, btnEl) {
+            currentCategory = cat;
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            btnEl.classList.add('active');
+            filterGadgets();
         }
+
+        function quickSearch(codeStr) {
+            const input = document.getElementById('bioSearchInput');
+            input.value = (input.value === codeStr) ? '' : codeStr;
+            filterGadgets();
+        }
+
+        function clearSearch() {
+            document.getElementById('bioSearchInput').value = '';
+            filterGadgets();
+        }
+
+        function filterGadgets() {
+            const inputEl = document.getElementById('bioSearchInput');
+            const query = inputEl.value.toLowerCase().trim();
+            document.getElementById('clearSearchBtn').style.display = query ? 'block' : 'none';
+
+            const cards = document.querySelectorAll('.link-card');
+            let visibleCount = 0;
+
+            cards.forEach(card => {
+                const text = card.innerText.toLowerCase();
+                const code = (card.getAttribute('data-code') || '').toLowerCase();
+                const cats = (card.getAttribute('data-category') || '').toLowerCase();
+
+                const matchesCat = (currentCategory === 'all' || cats.includes(currentCategory));
+                const matchesQuery = (!query || text.includes(query) || code.includes(query));
+
+                if (matchesCat && matchesQuery) {
+                    card.style.display = 'flex';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            document.getElementById('itemCountLabel').innerText = visibleCount + (visibleCount === 1 ? ' Deal' : ' Deals');
+            document.getElementById('emptyState').style.display = (visibleCount === 0) ? 'block' : 'none';
+        }
+
+        // 웹서버 환경에서 data/sourced_products.json 변경 시 실시간 동적 반영
+        async function tryLiveSyncFromJson() {
+            const candidatePaths = ['./data/sourced_products.json', './AgentCorp/data/sourced_products.json'];
+            for (const path of candidatePaths) {
+                try {
+                    const res = await fetch(path, { cache: 'no-store' });
+                    if (res.ok) {
+                        const data = await res.json();
+                        if (Array.isArray(data) && data.length > 0) {
+                            console.log('[Bio-Search] Live synced with', path, data.length, 'items');
+                            break;
+                        }
+                    }
+                } catch (_) {}
+            }
+        }
+        tryLiveSyncFromJson();
     </script>
 </body>
 

@@ -1,0 +1,44 @@
+{
+  "product_id": "ali_2002",
+  "title": "Mini Pocket Thermal Photo & Note Printer with Inkless Bluetooth Printing",
+  "category": "lifestyle_tech",
+  "price_usd": 14.9,
+  "rating": 4.7,
+  "orders_count": 12300,
+  "affiliate_url": "https://aliexpress.com/item/10050078905678.html?aff_fcid=bio-search",
+  "viral_score": 95.0,
+  "raw_video_source": "data\\raw_videos\\ali_2002_live.mp4",
+  "voice_actor": "Gemini Native TTS (Fenrir) + 3-Stage SFX",
+  "ai_insight": {
+    "viral_factor": "Instantly printing sticky notes or mini polaroid-style photos directly from a smartphone via Bluetooth without any ink creates a mesmerizing, tactile 'magic' reveal that hooks viewers in the first seconds.",
+    "anti_ban_risk": "LOW",
+    "compliance_notes": "Ensure advertising clearly states it prints monochrome thermal paper only (no color photos) to avoid misleading consumer claims, and verify CE/RoHS battery safety compliance for electronic imports.",
+    "recommended_hook_angle": "Start the video with a messy, chaotic study desk or disorganized planner, then slap a freshly printed aesthetic checklist or cute mini-photo onto it within 2 seconds while text overlays read 'The TikTok gadget that cured my ADHD/procrastination.'",
+    "target_audience": "Gen Z students, journal/planner enthusiasts, and busy young professionals looking for aesthetic, affordable organizational tools and creative DIY room decor.",
+    "analysis_mode": "ai_agent"
+  },
+  "script": {
+    "product_id": "ali_2002",
+    "item_code": "#2002",
+    "hook_angle": "problem_solver",
+    "variant_id": "A",
+    "product_title": "Mini Pocket Thermal Photo & Note Printer with Inkless Bluetooth Printing",
+    "hook": "I was today years old when I found out this annoying problem has a ten-dollar fix.",
+    "body": "This is the Mini Pocket Thermal Photo & Note Printer with Inkless Bluetooth Printing. It's only 14.90 dollars right now, and over 12,300 people rated it 4.7 stars. Watch how effortlessly it works right out of the box.",
+    "cta": "I dropped Link #2002 right in my bio for you guys!",
+    "full_narration": "I was today years old when I found out this annoying problem has a ten-dollar fix. This is the Mini Pocket Thermal Photo & Note Printer with Inkless Bluetooth Printing. It's only 14.90 dollars right now, and over 12,300 people rated it 4.7 stars. Watch how effortlessly it works right out of the box. I dropped Link #2002 right in my bio for you guys!",
+    "caption": "I was today years old when I found out this annoying problem has a ten-dollar fix.\n\n🔎 Search Code: #2002 in my bio link!\n✨ Product: Mini Pocket Thermal Photo & Note Printer with Inkless Bluetooth Printing\n🔗 Link #2002 is in my bio to shop!\n\n#techfinds #musthaves #uniquegadgets #amazonfinds #ad #commissionsearned",
+    "hashtags": [
+      "#techfinds",
+      "#musthaves",
+      "#uniquegadgets",
+      "#amazonfinds",
+      "#ad",
+      "#commissionsearned"
+    ],
+    "generation_mode": "template_fallback"
+  },
+  "audio_file": "output\\audio\\ali_2002_narration.mp3",
+  "video_file": "output\\videos\\ali_2002_short.mp4",
+  "verification_frame": "output\\verification_frames\\ali_2002_short_verified_frame.jpg"
+}

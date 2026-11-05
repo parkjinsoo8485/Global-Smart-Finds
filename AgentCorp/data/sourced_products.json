@@ -1,17 +1,107 @@
 [
   {
+    "id": "ali_2001",
+    "title": "Smart Visual Ear Cleaner with 1080P HD Wireless Endoscope Camera",
+    "original_url": "https://aliexpress.com/item/10050078901234.html",
+    "affiliate_url": "https://aliexpress.com/item/10050078901234.html?aff_fcid=bio-search",
+    "price_usd": 12.49,
+    "rating": 4.8,
+    "orders_count": 8540,
+    "images": [
+      "https://ae-pic.aliexpress-media.com/ear1.jpg"
+    ],
+    "video_url": "https://ae-video.aliexpress-media.com/ear_demo.mp4",
+    "category": "smart_gadgets",
+    "viral_score": 100.0,
+    "viral_reasons": [
+      "충동구매 최적 가격대 ($12.49)",
+      "최상위 고객 만족도 (★4.8)",
+      "검증된 메가 히트 상품 (8,540건 판매)",
+      "고화질 시연 데모 비디오 확보"
+    ],
+    "ai_insight": {
+      "viral_factor": "The 1080P wireless endoscope camera streams live gross-out macro footage of earwax removal straight to the viewer's phone, triggering intense satisfying curiosity that hooks viewers instantly.",
+      "anti_ban_risk": "MEDIUM",
+      "compliance_notes": "Avoid making explicit medical or diagnostic claims (e.g., curing infections or medical-grade cleaning). Include standard disclaimers that this is for personal hygiene use only to prevent ad platform rejections.",
+      "recommended_hook_angle": "Start with an extreme close-up of a massive earwax plug under the 1080P scope with the text 'I can't believe lived with this inside my ear' to instantly captivate curiosity in the first 3 seconds.",
+      "target_audience": "Gen Z and Millennials interested in satisfying ASMR content, gadgets, and personal hygiene products looking for a dopamine-boosting cleaning experience.",
+      "analysis_mode": "ai_agent"
+    },
+    "raw_video_path": "data\\raw_videos\\ali_2001_live.mp4"
+  },
+  {
+    "id": "ali_2003",
+    "title": "Levitating Magnetic Astronaut Galaxy Aurora Projector with 360 Rotation",
+    "original_url": "https://aliexpress.com/item/10050078909999.html",
+    "affiliate_url": "https://aliexpress.com/item/10050078909999.html?aff_fcid=bio-search",
+    "price_usd": 24.99,
+    "rating": 4.9,
+    "orders_count": 15420,
+    "images": [
+      "https://ae-pic.aliexpress-media.com/astronaut1.jpg"
+    ],
+    "video_url": "https://ae-video.aliexpress-media.com/astronaut_demo.mp4",
+    "category": "home_decor",
+    "viral_score": 100.0,
+    "viral_reasons": [
+      "충동구매 최적 가격대 ($24.99)",
+      "최상위 고객 만족도 (★4.9)",
+      "검증된 메가 히트 상품 (15,420건 판매)",
+      "고화질 시연 데모 비디오 확보"
+    ],
+    "ai_insight": {
+      "viral_factor": "The mesmerizing combination of a floating magnetic astronaut head projecting a spinning galaxy aurora across dark bedroom walls creates an immediate sensory spectacle. In 숏폼 videos, the visual contrast in a pitch-black room instantly stops scrolling.",
+      "anti_ban_risk": "LOW",
+      "compliance_notes": "Ensure standard CE/FCC safety certifications are verified for the USB power supply and magnetic base to prevent overheating risks. Avoid making any false astronomical or medical claims regarding sleep healing.",
+      "recommended_hook_angle": "Start the video in pitch darkness with the caption 'POV: You turned your bedroom into a private galaxy,' then instantly snap the magnetic astronaut head onto the base to reveal the swirling aurora ceiling.",
+      "target_audience": "Gen Z and young adults aged 15-28 looking for aesthetic room decor, aesthetic lighting, and ambient bedroom upgrades for TikTok and Twitch setups.",
+      "analysis_mode": "ai_agent"
+    },
+    "raw_video_path": "data\\raw_videos\\ali_2003_live.mp4"
+  },
+  {
+    "id": "ali_2002",
+    "title": "Mini Pocket Thermal Photo & Note Printer with Inkless Bluetooth Printing",
+    "original_url": "https://aliexpress.com/item/10050078905678.html",
+    "affiliate_url": "https://aliexpress.com/item/10050078905678.html?aff_fcid=bio-search",
+    "price_usd": 14.9,
+    "rating": 4.7,
+    "orders_count": 12300,
+    "images": [
+      "https://ae-pic.aliexpress-media.com/printer1.jpg"
+    ],
+    "video_url": "https://ae-video.aliexpress-media.com/printer_demo.mp4",
+    "category": "lifestyle_tech",
+    "viral_score": 95.0,
+    "viral_reasons": [
+      "충동구매 최적 가격대 ($14.90)",
+      "안정적인 평점 (★4.7)",
+      "검증된 메가 히트 상품 (12,300건 판매)",
+      "고화질 시연 데모 비디오 확보"
+    ],
+    "ai_insight": {
+      "viral_factor": "Instantly printing sticky notes or mini polaroid-style photos directly from a smartphone via Bluetooth without any ink creates a mesmerizing, tactile 'magic' reveal that hooks viewers in the first seconds.",
+      "anti_ban_risk": "LOW",
+      "compliance_notes": "Ensure advertising clearly states it prints monochrome thermal paper only (no color photos) to avoid misleading consumer claims, and verify CE/RoHS battery safety compliance for electronic imports.",
+      "recommended_hook_angle": "Start the video with a messy, chaotic study desk or disorganized planner, then slap a freshly printed aesthetic checklist or cute mini-photo onto it within 2 seconds while text overlays read 'The TikTok gadget that cured my ADHD/procrastination.'",
+      "target_audience": "Gen Z students, journal/planner enthusiasts, and busy young professionals looking for aesthetic, affordable organizational tools and creative DIY room decor.",
+      "analysis_mode": "ai_agent"
+    },
+    "raw_video_path": "data\\raw_videos\\ali_2002_live.mp4"
+  },
+  {
     "id": "ali_1001",
     "title": "Mini Portable Electric Air Duster & Vacuum 2-in-1 for Keyboard & Car",
     "original_url": "https://aliexpress.com/item/100500123456.html",
-    "affiliate_url": "https://aliexpress.com/item/100500123456.html?aff_fcid=agentcorp_global_01",
+    "affiliate_url": "https://aliexpress.com/item/100500123456.html?aff_fcid=bio-search",
     "price_usd": 16.8,
     "rating": 4.8,
     "orders_count": 3420,
-    "raw_video_path": "data/air_duster_motion.mp4",
-    "image_path": "data/real_air_duster.jpg",
     "images": [
-      "data/real_air_duster.jpg"
+      "https://ae-pic-a1.aliexpress-media.com/sample1.jpg",
+      "https://ae-pic-a1.aliexpress-media.com/sample2.jpg"
     ],
+    "video_url": "https://ae-video.aliexpress-media.com/demo.mp4",
     "category": "tech_gadgets",
     "viral_score": 100.0,
     "viral_reasons": [
@@ -19,21 +109,29 @@
       "최상위 고객 만족도 (★4.8)",
       "검증된 메가 히트 상품 (3,420건 판매)",
       "고화질 시연 데모 비디오 확보"
-    ]
+    ],
+    "ai_insight": {
+      "viral_factor": "The satisfying transformation of deeply dusty, crumb-filled keyboards and car crevices instantly blasted clean into a spotless state creates an addictive before-and-after visual loop that triggers ASMR-like viewing behavior on short-form feeds.",
+      "anti_ban_risk": "LOW",
+      "compliance_notes": "Ensure all lithium-ion battery advertising claims comply with local platform safety standards and clearly state that it is a generic high-power cleaner without referencing copyrighted brand names.",
+      "recommended_hook_angle": "Start by zooming in on a brutally filthy, hair- and crumb-covered mechanical keyboard, then slam the air duster down and blast it clean in one explosive second with the text overlay: 'Stop destroying your $200 keyboard with canned air.'",
+      "target_audience": "Tech enthusiasts, PC gamers, and car detailers aged 18-35 looking for satisfying, portable gadget solutions to maintain their workspace and vehicle hygiene.",
+      "analysis_mode": "ai_agent"
+    },
+    "raw_video_path": "data/air_duster_motion.mp4"
   },
   {
     "id": "ali_1002",
     "title": "Automatic Stirring Magnetic Mug for Coffee & Milk",
     "original_url": "https://aliexpress.com/item/100500987654.html",
-    "affiliate_url": "https://aliexpress.com/item/100500987654.html?aff_fcid=agentcorp_global_01",
+    "affiliate_url": "https://aliexpress.com/item/100500987654.html?aff_fcid=bio-search",
     "price_usd": 9.99,
     "rating": 4.6,
     "orders_count": 1850,
-    "raw_video_path": "data/stirring_mug_motion.mp4",
-    "image_path": "data/real_stirring_mug.jpg",
     "images": [
-      "data/real_stirring_mug.jpg"
+      "https://ae-pic-a1.aliexpress-media.com/mug1.jpg"
     ],
+    "video_url": "https://ae-video.aliexpress-media.com/mug_demo.mp4",
     "category": "kitchen_gadgets",
     "viral_score": 95.0,
     "viral_reasons": [
@@ -41,6 +139,15 @@
       "안정적인 평점 (★4.6)",
       "검증된 메가 히트 상품 (1,850건 판매)",
       "고화질 시연 데모 비디오 확보"
-    ]
+    ],
+    "ai_insight": {
+      "viral_factor": "The mesmerizing self-stirring vortex effect creates a satisfying ASMR visual when milk and coffee swirl together without a spoon, perfect for looping TikTok and Shorts feeds.",
+      "anti_ban_risk": "LOW",
+      "compliance_notes": "Ensure clear disclaimers regarding battery safety (waterproof compartment integrity) and avoid exaggerated durability or medical health claims.",
+      "recommended_hook_angle": "Start with a close-up of powder and milk being poured into the mug, then press the button to reveal the magical self-stirring vortex with zero spoon noise.",
+      "target_audience": "Busy office workers, coffee enthusiasts, and lazy college students looking for novelty kitchen gadgets and aesthetic desk accessories.",
+      "analysis_mode": "ai_agent"
+    },
+    "raw_video_path": "data/stirring_mug_motion.mp4"
   }
 ]

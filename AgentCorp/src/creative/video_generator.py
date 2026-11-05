@@ -50,10 +50,15 @@ class VideoAgent:
         hud = Image.new("RGBA", (width, height), color=(0, 0, 0, 0))  # 완전 투명 캔버스
         draw = ImageDraw.Draw(hud)
 
-        # 1. 상단 바이럴 헤더 (Pill Badge)
+        # 고유 #상품번호 추출 (예: ali_2001 -> #2001)
+        prod_id_str = str(product.get("id", "001"))
+        digits = "".join(ch for ch in prod_id_str if ch.isdigit())
+        item_code = f"#{digits}" if digits else "#001"
+
+        # 1. 상단 바이럴 헤더 (Pill Badge + #상품번호)
         badge_font = self._get_font(32, bold=True)
-        draw.rounded_rectangle([180, 70, 900, 145], radius=35, fill=(30, 41, 59, 230), outline="#FACC15", width=3)
-        draw.text((width // 2, 107), "HOT VIRAL GADGET FIND", fill="#FACC15", font=badge_font, anchor="mm")
+        draw.rounded_rectangle([160, 70, 920, 145], radius=35, fill=(30, 41, 59, 230), outline="#FACC15", width=3)
+        draw.text((width // 2, 107), f"HOT VIRAL GADGET • {item_code}", fill="#FACC15", font=badge_font, anchor="mm")
 
         # 2. 3초 바이럴 훅 박스 (가독성 높은 다크 반투명)
         hook_font = self._get_font(44, bold=True)
@@ -92,10 +97,10 @@ class VideoAgent:
             draw.text((width // 2, y_title), line, fill="#F8FAFC", font=title_font, anchor="mm")
             y_title += 44
 
-        # 6. 하단 강력한 CTA 버튼
+        # 6. 하단 강력한 CTA 버튼 (#상품번호 안내 결합)
         cta_font = self._get_font(44, bold=True)
         draw.rounded_rectangle([90, 1580, 990, 1710], radius=65, fill=(225, 29, 72, 245))  # 고대비 로즈 레드
-        draw.text((width // 2, 1645), ">> TAP LINK IN BIO TO SHOP <<", fill="#FFFFFF", font=cta_font, anchor="mm")
+        draw.text((width // 2, 1645), f">> LINK {item_code} IS IN MY BIO <<", fill="#FFFFFF", font=cta_font, anchor="mm")
 
         # 7. FTC 법적 고지 (최하단)
         ftc_font = self._get_font(26, bold=False)
@@ -105,10 +110,118 @@ class VideoAgent:
         hud.save(hud_path, "PNG")
         return hud_path
 
+    def sanitize_raw_video(self, raw_video: Path) -> Path:
+        """
+        [VIDEO_PRODUCTION_RULES.md 규칙 1 강제 적용]
+        원본 시연 영상에서 무의미한 초반/중간 정적 타이틀 카드(예: 'Operating Instructions',
+        앱 다운로드 QR 안내 등 고휘도 백색 슬라이드 mean > 215 또는 단색 정적 화면 stddev < 15)를
+        자동 감지하여 제거하고, 오직 실제 제품 작동/손동작 실사 구간만 추출합니다.
+        """
+        sanitized_dir = config.DATA_DIR / "sanitized_videos"
+        sanitized_dir.mkdir(parents=True, exist_ok=True)
+        clean_out = sanitized_dir / f"{raw_video.stem}_clean.mp4"
+
+        # 캐시된 클린본이 원본보다 최신이면 재사용
+        if clean_out.exists() and clean_out.stat().st_size > 100_000:
+            if clean_out.stat().st_mtime >= raw_video.stat().st_mtime:
+                return clean_out
+
+        from PIL import ImageStat
+        import tempfile
+
+        valid_seconds = []
+        invalid_found = False
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            tmp_path = Path(tmpdir)
+            for sec in range(0, 60):
+                frame_file = tmp_path / f"f_{sec:02d}.jpg"
+                res = subprocess.run(
+                    [
+                        self.ffmpeg_exe, "-y",
+                        "-ss", str(sec),
+                        "-i", str(raw_video),
+                        "-vframes", "1",
+                        "-vf", "scale=160:-1",
+                        "-q:v", "5",
+                        str(frame_file)
+                    ],
+                    stdout=subprocess.PIPE,
+                    stderr=subprocess.PIPE
+                )
+                if res.returncode != 0 or not frame_file.exists() or frame_file.stat().st_size == 0:
+                    break
+
+                im = Image.open(frame_file).convert("RGB")
+                stat = ImageStat.Stat(im)
+                avg_mean = sum(stat.mean) / 3.0
+                avg_sd = sum(stat.stddev) / 3.0
+
+                # 백색 메뉴얼/타이틀 슬라이드(mean > 215) 또는 단색 빈 화면(sd < 15) 배제
+                if avg_mean > 215.0 or avg_sd < 15.0:
+                    invalid_found = True
+                else:
+                    valid_seconds.append(sec)
+
+        if not invalid_found or not valid_seconds:
+            return raw_video
+
+        # 연속된 유효 구간(Segment) 병합 (최소 2초 이상 구간만 채택)
+        segments = []
+        seg_start = valid_seconds[0]
+        prev = valid_seconds[0]
+        for s in valid_seconds[1:]:
+            if s == prev + 1:
+                prev = s
+            else:
+                if (prev + 1 - seg_start) >= 2:
+                    segments.append((seg_start, prev + 1))
+                seg_start = s
+                prev = s
+        if (prev + 1 - seg_start) >= 2:
+            segments.append((seg_start, prev + 1))
+
+        if not segments:
+            return raw_video
+
+        # 마지막 세그먼트가 클라이맥스 결과 출력 장면인 경우(예: 프린터 출력 완료 장면) 0.0초 훅으로 선배치
+        if len(segments) >= 2 and (segments[-1][1] - segments[-1][0]) >= 4:
+            ordered_segments = [segments[-1]] + segments[:-1]
+        else:
+            ordered_segments = segments
+
+        filter_parts = []
+        concat_inputs = []
+        for idx, (st, ed) in enumerate(ordered_segments):
+            filter_parts.append(f"[0:v]trim=start={st}:end={ed},setpts=PTS-STARTPTS[v{idx}]")
+            concat_inputs.append(f"[v{idx}]")
+
+        filter_str = ";".join(filter_parts) + f";{''.join(concat_inputs)}concat=n={len(ordered_segments)}:v=1:a=0[outv]"
+
+        cmd = [
+            self.ffmpeg_exe, "-y",
+            "-i", str(raw_video),
+            "-filter_complex", filter_str,
+            "-map", "[outv]",
+            "-c:v", "libx264",
+            "-preset", "fast",
+            "-crf", "20",
+            "-pix_fmt", "yuv420p",
+            str(clean_out)
+        ]
+        res = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        if res.returncode == 0 and clean_out.exists() and clean_out.stat().st_size > 50_000:
+            print(f"  ✂️ [Video Sanitizer] 무의미한 타이틀/슬라이드 구간 제거 완료 -> {clean_out.name} (채택 구간: {ordered_segments})")
+            return clean_out
+
+        return raw_video
+
     def render_from_moving_video(self, raw_video: Path, product: Dict[str, Any], hook: str, cta: str, audio_path: Path) -> Path:
         """
         알리익스프레스 실제 시연 동영상(MP4)을 숏폼 규격으로 자동 컷편집 및 HUD 합성
         """
+        # 렌더링 전 무의미한 초반/중간 정적 타이틀 이미지 자동 제거
+        clean_video = self.sanitize_raw_video(raw_video)
         hud_overlay = self.create_transparent_hud(product, hook, cta)
         out_video = self.videos_dir / f"{product.get('id')}_short.mp4"
 
@@ -127,7 +240,7 @@ class VideoAgent:
             self.ffmpeg_exe,
             "-y",
             "-stream_loop", "-1",        # 원본 영상 무한 루프
-            "-i", str(raw_video),        # [0:v] 실제 시연 영상
+            "-i", str(clean_video),      # [0:v] 정적 슬라이드가 제거된 클린 실사 시연 영상
             "-loop", "1",                # [1:v] 투명 HUD 오버레이 지속 루프
             "-i", str(hud_overlay),      
             "-i", str(audio_path),       # [2:a] AI 나레이션 오디오
@@ -155,15 +268,42 @@ class VideoAgent:
         실제 동영상이 있으면 동영상 자동 편집, 없으면 실물 사진 줌인 모션으로 스마트 분기
         """
         raw_video_path = product.get("raw_video_path")
-        if raw_video_path and Path(raw_video_path).exists():
-            return self.render_from_moving_video(Path(raw_video_path), product, hook, cta, audio_path)
+        target_video = None
+        
+        if raw_video_path:
+            p = Path(raw_video_path)
+            if p.exists():
+                target_video = p
+            elif (config.BASE_DIR / raw_video_path).exists():
+                target_video = config.BASE_DIR / raw_video_path
 
-        # 폴백: 실물 사진 켄 번스 줌인
-        from src.creative.video_generator import VideoAgent as OldAgent
-        # 기존 로직 유지
-        hud = self.create_transparent_hud(product, hook, cta)
-        # 기본 렌더러 호출...
-        return self.render_from_moving_video(Path("data/sample_demo.mp4"), product, hook, cta, audio_path)
+        # 상품 ID 및 키워드 기반 1:1 엄격 매칭
+        if not target_video:
+            prod_id = str(product.get("id", ""))
+            title_lower = str(product.get("title", "")).lower()
+
+            mapping = [
+                (["1001", "duster", "vacuum"], "air_duster_motion.mp4"),
+                (["1002", "mug", "stirring"], "stirring_mug_motion.mp4"),
+                (["2001", "ear", "cleaner", "endoscope"], "ear_cleaner_motion.mp4"),
+                (["2002", "printer", "thermal"], "thermal_printer_motion.mp4"),
+                (["2003", "astronaut", "projector", "galaxy"], "astronaut_projector_motion.mp4"),
+            ]
+
+            for keywords, filename in mapping:
+                if any(k in prod_id or k in title_lower for k in keywords):
+                    candidate = config.DATA_DIR / filename
+                    if candidate.exists():
+                        target_video = candidate
+                        break
+
+        if target_video and target_video.exists():
+            return self.render_from_moving_video(target_video, product, hook, cta, audio_path)
+
+        raise FileNotFoundError(
+            f"상품 고유 모션 비디오 소스를 찾을 수 없습니다: {product.get('id')}. "
+            f"타 상품의 비디오로 덮어쓰는 것은 금지되어 있습니다."
+        )
 
     def extract_verification_frame(self, video_path: Path, timestamp: str = "00:00:02") -> Path:
         out_frame = self.frames_dir / f"{video_path.stem}_verified_frame.jpg"
