@@ -617,7 +617,13 @@ def sync_landing_page(
 
 
 if __name__ == "__main__":
+    import sys
+    if sys.stdout.encoding and sys.stdout.encoding.lower() != "utf-8":
+        try:
+            sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+        except Exception:
+            pass
     paths = sync_landing_page()
     for p in paths:
-        print(f"✅ [LandingPageSync] 바이오 랜딩페이지 동기화 완료: {p}")
+        print(f"[LandingPageSync] 바이오 랜딩페이지 동기화 완료: {p}")
 
